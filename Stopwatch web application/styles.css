@@ -1,0 +1,209 @@
+
+@keyframes bgAnimation {
+  0% { background: rgba(255, 30, 60, 0.9); }  
+  25% { background: rgba(255, 100, 50, 0.9); }  
+  50% { background: rgba(255, 180, 50, 0.9); }  
+  75% { background: rgba(255, 120, 120, 0.9); }  
+  100% { background: rgba(255, 50, 150, 0.9); }  
+}
+
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  animation: bgAnimation 8s infinite alternate ease-in-out;
+  transition: background 1.5s ease;
+}
+
+
+@keyframes upDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.h7 {
+  font-size: 2.8em;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(45deg, #210505, #0c08f7, #100d1aef, #ffea00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: upDown 2s ease-in-out infinite;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.stopwatch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 320px;
+  width: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  text-align: center;
+  box-shadow: 0px 0px 25px rgba(255, 100, 100, 0.5);
+  animation: pulse 3s infinite alternate;
+  padding: 20px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0px 0px 20px rgba(255, 100, 100, 0.5); }
+  100% { box-shadow: 0px 0px 40px rgba(255, 100, 100, 0.9); }
+}
+
+
+#display {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.btns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: white;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+#lap { background: linear-gradient(45deg, #ff5733, #ff3300); }
+#lap:hover { background: linear-gradient(45deg, #ff2200, #d43f00); transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 85, 51, 0.8); }
+
+#startStopPause { background: linear-gradient(45deg, #28a745, #158c34); }
+#startStopPause:hover { background: linear-gradient(45deg, #158c34, #0f6a27); transform: scale(1.1); box-shadow: 0 0 20px rgba(40, 167, 69, 0.8); }
+
+#reset { background: linear-gradient(45deg, #007bff, #0056b3); }
+#reset:hover { background: linear-gradient(45deg, #0056b3, #003f7f); transform: scale(1.1); box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); }
+
+
+.lap-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  max-height: 250px;
+  overflow-y: auto;
+  width: 320px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0px 0px 15px rgba(255, 100, 100, 0.4);
+  padding: 10px;
+}
+
+
+.lap-list li {
+  background: rgba(193, 21, 21, 0.4);
+  padding: 10px 15px;
+  margin: 6px 0;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  font-size: 1em;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInBounce 0.6s ease forwards;
+}
+
+@keyframes fadeInBounce {
+  0% { opacity: 0; transform: translateY(20px); }
+  60% { opacity: 1; transform: translateY(-5px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+
+@media screen and (max-width: 480px) {
+  .stopwatch {
+      width: 260px;
+      height: 260px;
+  }
+  #display {
+      font-size: 2em;
+  }
+  button {
+      font-size: 1em;
+      padding: 10px 16px;
+  }
+  .lap-list {
+      width: 260px;
+  }
+}
+
+
+
+
+/* ====== Dark Mode Toggle Button Styling ====== */
+.dark-mode-toggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 10px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s;
+  color: white;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+
+.dark-mode {
+  background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(50, 50, 50, 0.9));
+}
+
+.dark-mode .stopwatch {
+  background: rgba(40, 40, 40, 0.8);
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode #display {
+  color: #f0f0f0;
+}
+
+.dark-mode button {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.dark-mode .lap-list {
+  background: rgba(50, 50, 50, 0.6);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .lap-list li {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+body, .stopwatch, button, .lap-list, .lap-list li {
+  transition: all 0.5s ease-in-out;
+}

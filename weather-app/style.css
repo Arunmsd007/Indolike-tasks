@@ -1,0 +1,231 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: 
+        linear-gradient(
+            to bottom,
+            #123fc94f 50%,
+            #0208253f 50%
+        );
+    font-family: sans-serif;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+main {
+    width: 300px;
+    height: max-content;
+    min-height: 300px;
+    background-color: #e5e5ec;
+    border-radius: 30px;
+    box-shadow: 0 30px 50px #5553;
+    padding: 30px;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: slideUp 0.7s ease-in-out forwards;
+}
+
+
+main form {
+    border: 1px solid rgba(14, 10, 10, 0.703);
+    display: flex;
+    border-radius: 30px;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+
+main form input,
+main form button {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+
+main form input:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    padding-left: 15px;
+}
+
+
+main form button:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+
+main form i {
+    opacity: 0.7;
+}
+
+
+main .result {
+    padding-top: 20px;
+    text-align: center;
+}
+
+
+main .result .name {
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+main .temperature img {
+    width: 150px;
+    filter: drop-shadow(0 10px 50px #555);
+    animation: bounce 2s infinite ease-in-out;
+}
+
+
+main .temperature figcaption {
+    font-size: 3em;
+}
+
+
+main:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+
+main .description {
+    padding: 10px 0 30px;
+}
+
+
+main ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+main li {
+    background-color: #fe722b;
+    color: #f7efef;
+    border-radius: 10px;
+    padding: 20px 10px;
+    font-weight: bold;
+    font-size: small;
+    transition: all 0.3s ease-in-out;
+}
+
+
+main li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+main ul li i {
+    font-size: 2em;
+    margin: 20px 0;
+    display: block !important;
+    animation: pulse 1.5s infinite;
+}
+
+main li:nth-child(2) {
+    background-color: #e452a5;
+}
+
+main li:nth-child(3) {
+    background-color: #033cda;
+}
+
+
+main.error {
+    animation: errorEffect 0.3s linear 1;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+@keyframes errorEffect {
+    0% {
+        transform: translate(10px, 5px);
+    }
+    25% {
+        transform: translate(-5px, 0);
+    }
+    50% {
+        transform: translate(8px, 2px);
+    }
+    75% {
+        transform: translate(-2px, 5px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
