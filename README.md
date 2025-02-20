@@ -1,9 +1,9 @@
 Frontend Development Internship @ Indolike
 
-## About
+## ✨ About
 This repository documents my work as a Frontend Developer Intern at Indolike. During my internship, I focused on building interactive and responsive web applications using modern frontend technologies.
 
-## Projects
+## 🌐 Projects
 ### 1. Amazon Homepage Clone
 - Description: A pixel-perfect clone of the Amazon homepage built with HTML, CSS, and Bootstrap.
 - Technologies Used: HTML, CSS, Bootstrap
